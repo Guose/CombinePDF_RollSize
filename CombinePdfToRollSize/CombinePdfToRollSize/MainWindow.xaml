@@ -1,0 +1,45 @@
+﻿<Window x:Class="CombinePdfToRollSize.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CombinePdfToRollSize"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="475" Width="800">
+    <Window.Resources>
+        <Style x:Key="_ListBoxItemStyle" TargetType="ListBoxItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border Name="_Border"
+                            Padding="2"
+                            SnapsToDevicePixels="True">
+                            <ContentPresenter />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="_Border" Property="Background" Value="LightBlue" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Label x:Name="lblPath" Content="Path:" HorizontalAlignment="Left" Margin="40,8,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtPath" HorizontalAlignment="Left" Height="27" Margin="40,33,0,0" Text="" VerticalAlignment="Top" Width="531" IsReadOnly="True"/>
+        <Button x:Name="btnBrowse" Content="Browse" HorizontalAlignment="Left" Margin="607,33,0,0" VerticalAlignment="Top" Width="75" Height="27" Click="BtnBrowse_Click"/>
+        <ListBox x:Name="lstFiles" ItemContainerStyle="{DynamicResource _ListBoxItemStyle}" HorizontalAlignment="Left" Height="336" Margin="40,73,0,0" VerticalAlignment="Top" Width="440" SelectionChanged="lstFiles_SelectionChanged"/>
+        <Label x:Name="lblCountyId" Content="County ID:" HorizontalAlignment="Left" Margin="541,76,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtCountyId" HorizontalAlignment="Left" Height="33" Margin="541,102,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="217" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Button x:Name="btnMerge" Content="Merge Files" HorizontalAlignment="Left" Margin="541,315,0,0" VerticalAlignment="Top" Width="217" Height="35" FontWeight="Bold" IsEnabled="False" Click="BtnMerge_Click"/>
+        <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" Margin="541,372,0,0" VerticalAlignment="Top" Width="217" Height="35" Click="BtnExit_Click"/>
+        <Label x:Name="lblFileNumber" Content="File Number:" HorizontalAlignment="Left" Margin="541,224,0,0" VerticalAlignment="Top" Width="79"/>
+        <TextBox x:Name="txtFileNumber" HorizontalAlignment="Left" Height="33" Margin="541,249,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="120" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="lblIlk" Content="IVS Ilk:" HorizontalAlignment="Left" Margin="541,147,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtIlk" HorizontalAlignment="Left" Height="33" Margin="541,173,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+
+    </Grid>
+</Window>
